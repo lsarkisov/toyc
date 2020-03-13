@@ -1,4 +1,4 @@
-#include "app/test.hpp"
+#include "app/tokenizer.hpp"
 
 #include <iostream>
 
@@ -8,7 +8,7 @@ int main()
 {
   cout << "Hello, Compiler\n";
   
-  toyc::app::Test* test = new toyc::app::Test();
+  toyc::app::Tokenizer* test = new toyc::app::Tokenizer();
   test->shay_hi();
     
   return 0;

@@ -9,14 +9,16 @@ namespace toyc
 {
   namespace app
   {
+    template<typename T>
     struct Token
     {
-      Token(const string& t, const char v)
+      Token(const string& t, T v)
         : type(t), value(v)
       {
       }
+
       string type;
-      char value; 
+      T value; 
     };
   }
 }

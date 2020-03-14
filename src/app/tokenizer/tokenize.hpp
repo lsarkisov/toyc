@@ -3,10 +3,12 @@
 
 #include "token.hpp"
 
+#include <cctype>
 #include <iostream>
 #include <string>
 #include <vector>
 #include <regex>
+#include <locale>
 
 
 using std::cout;
@@ -16,6 +18,7 @@ using std::shared_ptr;
 using std::regex;
 using std::regex_match;
 using std::smatch;
+using std::isdigit;
 
 namespace toyc 
 {
@@ -25,7 +28,8 @@ namespace toyc
       public:
         Tokenize(const string&);
         
-        Token add_token(const string&, const char); 
+        template<typename T>
+        Token<T> add_token(const string&, T v); 
         
         void run();
         
@@ -33,7 +37,7 @@ namespace toyc
       
       private:
         const string in;
-        vector<Token> tokens;
+        vector<Token<char>> tokens;
 
     };
   }

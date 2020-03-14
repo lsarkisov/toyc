@@ -26,15 +26,25 @@ namespace toyc
             ++i;
             continue;
         }
-        
+       
+        if (isdigit(in[i]))
+        {
+          while(isdigit(in[i]))
+          {
+            cout << "IS DIGIT\n";
+            ++i;
+          }          
+        }
+
         ++i;  
       }
       cout << tokens.size() << '\n';
     }
     
-    Token Tokenize::add_token(const string& type, const char value)
+    template<typename T>
+    Token<T> Tokenize::add_token(const string& type, T value)
     {
-      return Token {type, value}; 
+      return Token<T> {type, value}; 
     }
   }
 }

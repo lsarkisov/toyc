@@ -10,7 +10,7 @@ int main()
   
   const string expr = "add(2, subtract(4, 2))";
   toyc::app::Tokenize* test = new toyc::app::Tokenize(expr);
-  test->shay_hi();
+  test->run();
     
   return 0;
 }

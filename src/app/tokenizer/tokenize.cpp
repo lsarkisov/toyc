@@ -5,7 +5,9 @@ namespace toyc
 {
   namespace app
   {
-    Tokenize::Tokenize(const string& in)
+    Tokenize::Tokenize(const string& input)
+      : in(input) {}
+    void Tokenize::run()
     {
       int i = in.size();
 
@@ -21,10 +23,6 @@ namespace toyc
         }
         --i;  
       }
-    
-    }
-    void Tokenize::shay_hi()
-    {
       cout << "I am a Tokenize\n";
     }
   }

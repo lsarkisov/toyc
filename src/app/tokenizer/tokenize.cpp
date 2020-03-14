@@ -14,19 +14,24 @@ namespace toyc
 
       while(i < in.size())
       {
-        switch(in[i])
+        if (in[i] == ' ')
         {
-          case '(':
-            cout << "this is ( char\n";
-            tokens.push_back(add_token("parent", in[i]));
-            break;
-          default:
-            cout << "default case\n";
+          ++i;
+          continue;
         }
+        
+        if (in[i] == '(' || in[i] == ')')
+        {
+            tokens.push_back(add_token("paren", in[i]));
+            ++i;
+            continue;
+        }
+        
         ++i;  
       }
-    cout << tokens.size() << '\n';
+      cout << tokens.size() << '\n';
     }
+    
     Token Tokenize::add_token(const string& type, const char value)
     {
       return Token {type, value}; 

@@ -6,13 +6,16 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <memory>
+#include <regex>
+
 
 using std::cout;
 using std::string;
 using std::vector;
 using std::shared_ptr;
-using std::make_shared;
+using std::regex;
+using std::regex_match;
+using std::smatch;
 
 namespace toyc 
 {

@@ -12,7 +12,9 @@ namespace toyc
     struct Token
     {
       Token(const string& t, const char v)
-      : type(t), value(v) { }
+        : type(t), value(v)
+      {
+      }
       string type;
       char value; 
     };

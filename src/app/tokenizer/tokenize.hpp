@@ -24,9 +24,13 @@ namespace toyc
     class Tokenize {
       public:
         Tokenize(const string&);
-        void run();
+        
         Token add_token(const string&, const char); 
+        
+        void run();
+        
         ~Tokenize() {}
+      
       private:
         const string in;
         vector<Token> tokens;

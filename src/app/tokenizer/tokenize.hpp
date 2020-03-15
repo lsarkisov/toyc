@@ -3,8 +3,11 @@
 
 #include "token.hpp"
 
-#include <cctype>
+#include <cstdlib> 
+#include <cstring> 
 #include <iostream>
+#include <ostream>
+#include <ostream>
 #include <string>
 #include <vector>
 #include <regex>
@@ -12,6 +15,7 @@
 
 
 using std::cout;
+using std::ostream;
 using std::string;
 using std::vector;
 using std::shared_ptr;
@@ -28,17 +32,19 @@ namespace toyc
       public:
         Tokenize(const string&);
         
+        void run();
+        
         template<typename T>
         Token<T> add_token(const string&, T v); 
         
-        void run();
+        template<typename T>
+        friend ostream& operator << (ostream& os, const Token<T>&);
         
         ~Tokenize() {}
-      
+        
       private:
         const string in;
-        vector<Token<char>> tokens;
-
+        vector<Token<string>> tokens;
     };
   }
 }

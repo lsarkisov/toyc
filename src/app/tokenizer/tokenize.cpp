@@ -5,6 +5,18 @@ namespace toyc
 {
   namespace app
   {
+    
+    template<typename T>
+    ostream & operator << (ostream& os, const Token<T>& t)
+    {
+      return os 
+        << "{ type:" 
+        << t.type 
+        << ", value: "
+        << t.value 
+        << " }";
+    } 
+
     Tokenize::Tokenize(const string& input)
       : in(input) {}
 
@@ -22,23 +34,29 @@ namespace toyc
         
         if (in[i] == '(' || in[i] == ')')
         {
-            tokens.push_back(add_token("paren", in[i]));
-            ++i;
-            continue;
+          tokens.push_back(add_token("paren", string(1, in[i])));
+          ++i;
+          continue;
         }
        
         if (isdigit(in[i]))
         {
-          while(isdigit(in[i]))
+          string j = string(1, in[i]);
+          while((i+1) < in.size() && isdigit(in[(i+1)])) 
           {
-            cout << "IS DIGIT\n";
+            j += in[i+1]; 
             ++i;
-          }          
+          }
+          tokens.push_back(add_token("number", j));
         }
 
         ++i;  
       }
-      cout << tokens.size() << '\n';
+    
+      for(auto & token : tokens)
+      {
+        cout << token << '\n'; 
+      }  
     }
     
     template<typename T>

@@ -3,8 +3,6 @@
 
 #include "token.hpp"
 
-#include <cstdlib> 
-#include <cstring> 
 #include <iostream>
 #include <ostream>
 #include <ostream>

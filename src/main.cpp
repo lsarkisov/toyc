@@ -8,7 +8,7 @@ int main()
 {
   cout << "Hello, Compiler\n";
   
-  const string expr = "add(274, subtract(4, 2))";
+  const string expr = "var i = 'abc'; add(274, subtract(4, 2))";
   toyc::app::Tokenize* test = new toyc::app::Tokenize(expr);
   test->run();
     

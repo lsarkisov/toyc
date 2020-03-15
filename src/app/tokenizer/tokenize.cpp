@@ -5,7 +5,6 @@ namespace toyc
 {
   namespace app
   {
-    
     template<typename T>
     ostream & operator << (ostream& os, const Token<T>& t)
     {
@@ -15,7 +14,7 @@ namespace toyc
         << ", value: "
         << t.value 
         << " }";
-    } 
+    }
 
     Tokenize::Tokenize(const string& input)
       : in(input) {}
@@ -26,7 +25,7 @@ namespace toyc
 
       while(i < in.size())
       {
-        if (in[i] == ' ')
+        if (isspace(in[i]))
         {
           ++i;
         }

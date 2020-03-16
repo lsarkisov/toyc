@@ -1,4 +1,5 @@
 #include "app/tokenizer/tokenize.hpp"
+#include "app/parser/parse.hpp"
 
 #include <iostream>
 
@@ -11,6 +12,8 @@ int main()
   const string expr = "var i = 'abc'; add(274, subtract(4, 2))";
   toyc::app::Tokenize* test = new toyc::app::Tokenize(expr);
   test->run();
-    
+
+  new toyc::app::Parse();
+
   return 0;
 }

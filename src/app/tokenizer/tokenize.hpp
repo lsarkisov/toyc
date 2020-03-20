@@ -11,38 +11,27 @@
 #include <regex>
 #include <locale>
 
-
-using std::cout;
-using std::ostream;
-using std::string;
-using std::vector;
-using std::shared_ptr;
-using std::regex;
-using std::regex_match;
-using std::smatch;
-using std::isdigit;
-
 namespace toyc 
 {
   namespace app
   {
     class Tokenize {
       public:
-        Tokenize(const string&);
-        
-        void run();
-        
-        template<typename T>
-        Token<T> add_token(const string&, T v); 
-        
-        template<typename T>
-        friend ostream& operator << (ostream& os, const Token<T>&);
+        explicit Tokenize(const std::string&);
         
         ~Tokenize() {}
-        
+      
+        std::vector<Token<std::string>> get_token(); 
       private:
-        const string in;
-        vector<Token<string>> tokens;
+        template<typename T>
+        Token<T> add_token(const std::string&, T v); 
+        
+        template<typename T>
+        friend std::ostream& operator << (std::ostream& os, const Token<T>&);
+
+      private:
+        const std::string in;
+        std::vector<Token<std::string>> tokens;
     };
   }
 }

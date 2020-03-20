@@ -6,7 +6,7 @@ namespace toyc
   namespace app
   {
     template<typename T>
-    ostream & operator << (ostream& os, const Token<T>& t)
+    std::ostream & operator << (std::ostream& os, const Token<T>& t)
     {
       return os 
         << "{ type: " 
@@ -16,42 +16,40 @@ namespace toyc
         << " }";
     }
 
-    Tokenize::Tokenize(const string& input)
-      : in(input) {}
-
-    void Tokenize::run()
+    Tokenize::Tokenize(const std::string& input)
+      : in(input)
     {
       size_t i = 0; 
 
       while(i < in.size())
       {
-        if (isspace(in[i]))
+        if (std::isspace(in[i]))
         {
           ++i;
         }
         
         if (in[i] == '(' || in[i] == ')')
         {
-          tokens.push_back(add_token("paren", string(1, in[i])));
+          tokens.push_back(add_token("paren", std::string(1, in[i])));
           ++i;
         }
 
         if (in[i] == '\'')
         {
-          string j = ""; 
-          while((i+1) < in.size() && in[i+1] != '\'' && isalpha(in[(i+1)])) 
+          std::string j = ""; 
+          while((i+1) < in.size() && in[i+1] != '\'' && std::isalpha(in[(i+1)])) 
           {
-            j += string(1, in[i+1]);
+            j += std::string(1, in[i+1]);
             ++i;
           }
           tokens.push_back(add_token("string", j));
           ++i;
         }
        
-        if (isdigit(in[i]))
+        if (std::isdigit(in[i]))
         {
-          string j = string(1, in[i]);
-          while((i+1) < in.size() && isdigit(in[(i+1)])) 
+          std::string j = std::string(1, in[i]);
+          while((i+1) < in.size() && std::isdigit(in[(i+1)])) 
           {
             j += in[i+1]; 
             ++i;
@@ -59,10 +57,10 @@ namespace toyc
           tokens.push_back(add_token("number", j));
         }
         
-        if (isalpha(in[i]))
+        if (std::isalpha(in[i]))
         {
-          string j = string(1, in[i]);
-          while((i+1) < in.size() && isalpha(in[(i+1)])) 
+          std::string j = std::string(1, in[i]);
+          while((i+1) < in.size() && std::isalpha(in[(i+1)])) 
           {
             j += in[i+1]; 
             ++i;
@@ -75,15 +73,20 @@ namespace toyc
 
       for(auto & token : tokens)
       {
-        cout << token << '\n'; 
+        std::cout << token << '\n'; 
       }  
     }
     
     template<typename T>
-    Token<T> Tokenize::add_token(const string& type, T value)
+    Token<T> Tokenize::add_token(const std::string& type, T value)
     {
       return Token<T> {type, value}; 
     }
+    
+    std::vector<Token<std::string>> Tokenize::get_token()
+    {
+      return tokens;
+    } 
   }
 }
 

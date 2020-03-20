@@ -4,14 +4,40 @@ namespace toyc
 {
   namespace app
   {
-    Parse::Parse()
+    Parse::Parse(const std::vector<Token<std::string>>& token)
     {
-      cout << "Parse() constructor\n";
+      /*
+        {
+          type: 'Program',
+          body: [{
+            type: 'CallExpression',
+            name: 'add',
+            params: [{
+              type: 'NumberLiteral',
+              value: '2'
+            }, {
+              type: 'CallExpression',
+              name: 'subtract',
+              params: [{
+                type: 'NumberLiteral',
+                value: '4'
+              }, {
+                type: 'NumberLiteral',
+                value: '2'
+              }]
+            }]
+          }]
+        }
+      */
+      std::for_each(token.begin(), token.end(), [&](auto& t) {
+          std::cout << "{ " << t.type << ", " << t.value << " }\n"; 
+      });
+
     };    
     
     Parse::~Parse()
     {
-      cout << "Destructor of Parse()\n";
+      std::cout << "Destructor of Parse()\n";
     };    
   }
 }

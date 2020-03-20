@@ -1,9 +1,13 @@
 #ifndef toyc_parse_header
 #define toyc_parse_header
 
-#include <iostream>
+#include "../tokenizer/token.hpp"
+#include "./ast.hpp"
 
-using std::cout;
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
 
 namespace toyc 
 {
@@ -12,8 +16,10 @@ namespace toyc
     class Parse
     {
       public:
-        Parse();
+        explicit Parse(const std::vector<Token<std::string>>&);
         ~Parse();
+
+      private:
     };    
   }
 }

@@ -1,19 +1,21 @@
 #include "app/tokenizer/tokenize.hpp"
+#include "app/tokenizer/token.hpp"
 #include "app/parser/parse.hpp"
 
 #include <iostream>
-
-using std::cout;
+#include <vector>
 
 int main()
 {
-  cout << "Hello, Compiler\n";
+  std::cout << "Hello, Compiler\n";
   
-  const string expr = "var i = 'abc'; add(274, subtract(4, 2))";
-  toyc::app::Tokenize* test = new toyc::app::Tokenize(expr);
-  test->run();
+  std::string expr = "var i = 'abc'; add(274, subtract(4, 2))";
+  toyc::app::Tokenize* t = new toyc::app::Tokenize(expr);
+  std::vector<toyc::app::Token<std::string>> tokens = t->get_token();
 
-  new toyc::app::Parse();
+  new toyc::app::Parse(tokens);
 
   return 0;
 }
+
+

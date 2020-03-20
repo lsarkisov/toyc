@@ -3,8 +3,6 @@
 
 #include <string>
 
-using std::string;
-
 namespace toyc
 {
   namespace app
@@ -12,12 +10,12 @@ namespace toyc
     template<typename T>
     struct Token
     {
-      Token(const string& t, T v)
+      Token(const std::string& t, T v)
         : type(t), value(v)
       {
       }
 
-      string type;
+      std::string type;
       T value; 
     };
   }

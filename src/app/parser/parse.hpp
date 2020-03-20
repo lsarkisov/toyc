@@ -16,7 +16,7 @@ namespace toyc
     class Parse
     {
       public:
-        explicit Parse(const std::vector<Token<std::string>>&);
+        explicit Parse(const std::vector<Token>&);
         ~Parse();
 
       private:

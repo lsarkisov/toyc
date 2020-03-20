@@ -5,8 +5,7 @@ namespace toyc
 {
   namespace app
   {
-    template<typename T>
-    std::ostream & operator << (std::ostream& os, const Token<T>& t)
+    std::ostream & operator << (std::ostream& os, const Token& t)
     {
       return os 
         << "{ type: " 
@@ -77,13 +76,12 @@ namespace toyc
       }  
     }
     
-    template<typename T>
-    Token<T> Tokenize::add_token(const std::string& type, T value)
+    Token Tokenize::add_token(const std::string& type, std::string value)
     {
-      return Token<T> {type, value}; 
+      return Token {type, value}; 
     }
     
-    std::vector<Token<std::string>> Tokenize::get_token()
+    std::vector<Token> Tokenize::get_token()
     {
       return tokens;
     } 

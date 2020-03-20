@@ -11,7 +11,7 @@ int main()
   
   std::string expr = "var i = 'abc'; add(274, subtract(4, 2))";
   toyc::app::Tokenize* t = new toyc::app::Tokenize(expr);
-  std::vector<toyc::app::Token<std::string>> tokens = t->get_token();
+  std::vector<toyc::app::Token> tokens = t->get_token();
 
   new toyc::app::Parse(tokens);
 

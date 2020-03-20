@@ -21,17 +21,16 @@ namespace toyc
         
         ~Tokenize() {}
       
-        std::vector<Token<std::string>> get_token(); 
+        std::vector<Token> get_token(); 
+      
       private:
-        template<typename T>
-        Token<T> add_token(const std::string&, T v); 
+        Token add_token(const std::string&, std::string v); 
         
-        template<typename T>
-        friend std::ostream& operator << (std::ostream& os, const Token<T>&);
+        friend std::ostream& operator << (std::ostream& os, const Token&);
 
       private:
         const std::string in;
-        std::vector<Token<std::string>> tokens;
+        std::vector<Token> tokens;
     };
   }
 }

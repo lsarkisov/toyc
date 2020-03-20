@@ -7,16 +7,15 @@ namespace toyc
 {
   namespace app
   {
-    template<typename T>
     struct Token
     {
-      Token(const std::string& t, T v)
+      Token(const std::string& t, std::string v)
         : type(t), value(v)
       {
       }
 
       std::string type;
-      T value; 
+      std::string value; 
     };
   }
 }

@@ -4,7 +4,7 @@ namespace toyc
 {
   namespace app
   {
-    Parse::Parse(const std::vector<Token<std::string>>& token)
+    Parse::Parse(const std::vector<Token>& token)
     {
       /*
         {

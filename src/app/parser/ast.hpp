@@ -10,7 +10,11 @@ namespace toyc
   {
     struct Body
     {
-      Body(const std::string& t, const std::string& n, const std::vector<Body>& p)
+      Body(
+          const std::string& t,
+          const std::string& n,
+          const std::vector<Body>& p
+      )
         : type(t), name(n), params(p)
       {
       }
@@ -22,7 +26,9 @@ namespace toyc
     
     struct AST 
     {
-      explicit AST(const std::vector<Body>& b)
+      explicit AST(
+          const std::vector<Body>& b
+      )
         : type("Program"), body(b) 
       {
       }

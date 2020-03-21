@@ -29,8 +29,14 @@ namespace toyc
           }]
         }
       */
-      std::for_each(token.begin(), token.end(), [&](auto& t) {
-          std::cout << "{ " << t.type << ", " << t.value << " }\n"; 
+      
+      std::for_each(token.begin(), token.end(), [i=0](auto& t) mutable {
+        if (t.type == "string")
+        {
+          
+        }
+        std::cout << i << ". { " << t.type << ", " << t.value << " }\n";
+         ++i; 
       });
 
     };    
